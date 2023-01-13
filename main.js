@@ -5,6 +5,10 @@ var computerWins = 0
 var gameType 
 var icons
 var computerIcons
+var gameWinner
+
+var computerArrayNumber 
+var playerArrayNumber
 
 var gameType = sessionStorage.getItem('gameType')
 
@@ -16,6 +20,8 @@ var HAL = ['hand', 'alien', 'lizzard']
 //event listeneners and their variables
 
 var game = document.querySelector('.game')
+var selection = document.querySelector('.game-text')
+var winnerText = document.querySelector('.winner')
 
 //functions
 
@@ -46,6 +52,12 @@ function generateIcons(icons) {
 
 function playGame(e) {
     var choice = e.currentTarget
+    arrayString = choice.src.slice(73)
+    for(var i = 0; i <= icons.length; i++) {
+        if(arrayString === icons[i]) {
+            playerArrayNumber = i
+        }
+    }
     choice = choice.src.slice(73)
 
     //gets random computer input
@@ -65,23 +77,58 @@ function playGame(e) {
     console.log(computerChoice)
     console.log(winner)
 
-    setInterval(function () {
-            console.log(game.style.opacity)
+    if(winner === 'w') {
+        gameWinner = 'You won!'
+    } else if(winner === 'l') {
+        gameWinner = 'You Lost!'
+    } else {
+        gameWinner = 'You Tied!'
+    }
+
+    var fadeEffect = setInterval(function () {
+        if (!game.style.opacity) {
             game.style.opacity = 1;
+        }
+        if (game.style.opacity > 0) {
+            game.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
 
-    }, 200);
+    }, 25);
 
-    battleScreen(playerChoice, computerChoice) 
+    setTimeout(function battleScreen() {
+        game.innerHTML = ``
+
+        game.style.opacity = 1;
+    
+        game.innerHTML = 
+        `
+        <img src="${icons[playerArrayNumber]}">
+        <img src="${icons[computerArrayNumber]}">
+
+        `
+
+        selection.innerHTML =
+        `
+        <h1 class="player-selection">${playerChoice}</h1>
+        <h1 class="computer-selection">${computerChoice}</h1>
+        `
+
+        winnerText.innerHTML = 
+        `
+        <h1 class="game-text">${gameWinner}</h1>
+        `
+    
+    },500)
     
 }
-
-setTimeout(function battleScreen(player, computer) {
-    game.innerHTML = ``
-},3000)
 
 function compChoice() {
     var num = Math.floor(Math.random() * 3) 
     var computerChoice = computerIcons[num]
+
+    computerArrayNumber = num
 
     return computerChoice
 }

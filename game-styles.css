@@ -36,6 +36,7 @@ img:active {
 .header {
     text-align: center;
     margin-top: 5vh;
+    color: bisque;
 }
 
 .instructions {
@@ -47,19 +48,27 @@ img:active {
 .right-side {
     width: 30vh;
     height: 100vh;
-    background-color: darkviolet;
+    background-color: rgb(24, 28, 47);
     float: right;
 }
 
 .left-side {
     width: 30vh;
     height: 100vh;
-    background-color: darkviolet;
+    background-color: rgb(24, 28, 47);
     float: left;
 }
 
 .game {
     display: flex;
     justify-content: space-around;
-    margin-top: 25vh;
+    margin-top: 15vh;
+}
+
+.game-text {
+    display: flex;
+    justify-content:space-around;
+    font-size: 4vh;
+    color: azure;
+    margin-top: 4vh;
 }

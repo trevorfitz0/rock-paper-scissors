@@ -12,3 +12,17 @@ explosion.addEventListener('click', function explosionGame() {
     sessionStorage.setItem('gameType', gameType)
     window.location.href = "game.html"
 })
+
+function fadeIcons() {
+    var fadeEffect = setInterval(function () {
+        if (!game.style.opacity) {
+            game.style.opacity = 1;
+        }
+        if (game.style.opacity > 0) {
+            game.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    
+    }, 25);
+}
