@@ -22,6 +22,8 @@ var HAL = ['hand', 'alien', 'lizzard']
 var game = document.querySelector('.game')
 var selection = document.querySelector('.game-text')
 var winnerText = document.querySelector('.winner')
+var hWins = document.querySelector('.human-wins')
+var cWins = document.querySelector('.computer-wins')
 
 //functions
 

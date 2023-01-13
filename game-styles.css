@@ -16,13 +16,27 @@ body {
     margin-bottom: 5vh;
 }
 
+.human-wins {
+    color: azure;
+    font-size: 10vh;
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.computer-wins {
+    color: azure;
+    font-size: 10vh;
+    text-align: center;
+    margin-top: 3vh;
+}
+
 .images {
     position: absolute;
 }
 
 img {
     height: 30vh;
-    width: 30vh;
+    width: 16vw;
 }
 
 img:hover {
@@ -50,6 +64,7 @@ img:active {
     height: 100vh;
     background-color: rgb(24, 28, 47);
     float: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .left-side {
@@ -57,6 +72,12 @@ img:active {
     height: 100vh;
     background-color: rgb(24, 28, 47);
     float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sides {
+    box-shadow: 10px 10px;
+    background-color: aliceblue;
 }
 
 .game {
@@ -71,4 +92,19 @@ img:active {
     font-size: 4vh;
     color: azure;
     margin-top: 4vh;
+}
+
+#buttons {
+    margin-top: 65vh;
+    height: 4vh;
+    width: auto;
+    background-color: antiquewhite;
+    font-size: 3vh;
+    display: flex;
+    justify-content:space-around;
+}
+
+#buttons:hover {
+    background-color: rgb(96, 94, 92);
+    transform: scale(1.02);
 }
