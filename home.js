@@ -5,24 +5,12 @@ var explosion = document.querySelector('.explosion')
 rainbow.addEventListener('click', function rainbowGame() {
     gameType = 'normal'
     sessionStorage.setItem('gameType', gameType)
-    window.location.href = "game.html"
+    fadeOut()
+    setTimeout(window.location.href = "game.html", 3000)
 })
 explosion.addEventListener('click', function explosionGame() {
     gameType = 'hardcore'
     sessionStorage.setItem('gameType', gameType)
-    window.location.href = "game.html"
+    fadeOut()
+    setTimeout(window.location.href = "game.html", 3000)
 })
-
-function fadeIcons() {
-    var fadeEffect = setInterval(function () {
-        if (!game.style.opacity) {
-            game.style.opacity = 1;
-        }
-        if (game.style.opacity > 0) {
-            game.style.opacity -= 0.1;
-        } else {
-            clearInterval(fadeEffect);
-        }
-    
-    }, 25);
-}

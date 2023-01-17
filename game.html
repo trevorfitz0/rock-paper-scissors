@@ -7,17 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
-<body onload="">
+<body onload="loadGame()">
     <section class="sides">
         <div class="left-side">
-            <h1 class="header">Human Wins</h1>
-            <p class="human-wins">0</p>
+            <h1 class="header">Player Wins</h1>
+            <section class="pWins">
+                <p class="human-wins">0</p>
+            </section>
             <div class="home-button" id="buttons">Change Game Mode</div>
         </div>
         <div class="right-side">
             <h1 class="header">Computer Wins</h1>
-            <p class="computer-wins">0</p>
-            <div class="home-button" id="buttons">Reset Score</div>
+            <section class="cWins">
+                <p class="computer-wins">0</p>
+            </section>
+            <div class="reset-button" id="buttons">Reset Score</div>
         </div>
     </section>
     <h1 class="game-header">Rock Paper Scissors!</h1>
@@ -28,6 +32,7 @@
         <section class="winner"></section>
     </section>
 </body>
+<script src="member.js"></script>
 <script src="main.js"></script>
 <script src="logic.js"></script>
 </html>
