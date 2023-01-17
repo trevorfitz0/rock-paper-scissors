@@ -1,3 +1,5 @@
+//This file contains the game logic and instructions for the hardcore game
+
 function normalLogic(player, computer) {
     if(player === 'rock') {
         if(computer === 'rock') {
@@ -27,7 +29,7 @@ function normalLogic(player, computer) {
 }
 
 
-var HAL = ['hand', 'alien', 'lizzard', 'ufo', 'iguana']
+//Instructions for hardcore mode
 
 //  hand cut alien
 //  alien covers lizzard

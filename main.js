@@ -23,14 +23,22 @@ var pWins = document.querySelector('.pWins')
 var cWins = document.querySelector('.cWins')
 var homeButton = document.querySelector('.home-button')
 var resetButton = document.querySelector('.reset-button')
+var instructionButton = document.querySelector('.instruction-button')
+var modal = document.querySelector("#myModal");
+var closeModal = document.querySelector(".close-button");
+var instructionText = document.querySelector('.instruction-text')
 
 homeButton.addEventListener('click', home)
 resetButton.addEventListener('click', reset)
+instructionButton.addEventListener('click', instructions)
+closeModal.addEventListener('click', xModal)
 
 //functions
 
+//Button Functions
+
 function home() {
-    setTimeout(window.location.href = "index.html", 3000)
+    setTimeout(window.location.href = "home.html", 3000)
 }
 
 function reset() {
@@ -38,6 +46,48 @@ function reset() {
     computer.wins = 0
     updateScore()
 }
+
+function instructions() {
+    if(gameType === 'hardcore') {
+        instructionText.innerHTML =
+        `
+        <h1>How to Play hardcore mode!</h1>
+            <p>
+                 hand cut alien
+                 alien covers lizzard
+                 lizzard crushes ufo
+                 ufo poisons iguanas
+                 iguanas smashes (or melts) hand
+                 hand decapitate ufo
+                 ufo eats alien
+                 alien disproves iguanas
+                 iguanas vaporizes lizzard
+                 lizzard breaks hand
+            </p>
+        `
+    } else {
+        instructionText.innerHTML = 
+        `
+        <h1>How to Play normal mode!</h1>
+            <p>
+            Rock wins against scissors; paper wins against rock; and scissors wins against paper. If both players throw the same hand signal, it is considered a tie, and play resumes until there is a clear winner.
+            </p>
+        `
+    }
+    modal.style.display = "block";
+}
+  
+function xModal() {
+    modal.style.display = "none";
+}
+  
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+//Load Game Functions
 
 function loadGame() {
     clearGame()
@@ -76,10 +126,8 @@ function playGame(e) {
         }
     }
 
-    //gets random computer input
     computer.choice = compChoice()
     
-    //gets player choice input
     if(gameType === 'normal') {
         player.choice = normalRound(arrayString)
         var winner = normalLogic(player.choice, computer.choice)
@@ -87,10 +135,6 @@ function playGame(e) {
         player.choice = hardcoreRound(arrayString)
         var winner = hardcoreLogic(player.choice, computer.choice)
     }
-
-    console.log(player.choice)
-    console.log(computer.choice)
-    console.log(winner)
 
     if(winner === 'w') {
         gameWinner = 'You won!'
@@ -103,6 +147,8 @@ function playGame(e) {
     }
 
     fadeOut()
+
+    //Function for Icons battling
 
     setTimeout(function battleScreen() {
         game.innerHTML = ``
@@ -135,17 +181,6 @@ function playGame(e) {
     setTimeout(fadeOut, 2000)
     setTimeout(loadGame, 2500)
 
-}
-
-function updateScore() {
-    pWins.innerHTML = 
-    `
-    <p class="human-wins">${player.wins}</p>
-    `
-    cWins.innerHTML = 
-    `
-    <p class="human-wins">${computer.wins}</p>
-    `
 }
 
 function compChoice() {
@@ -182,11 +217,6 @@ function hardcoreRound(choice) {
         return 'iguana'
     }
 }
-function clearGame() {
-    game.innerHTML = ``
-    selection.innerHTML = ``
-    winnerText.innerHTML = ``
-}
 
 function fadeOut() {
     var fadeEffect = setInterval(function () {
@@ -199,4 +229,23 @@ function fadeOut() {
             clearInterval(fadeEffect)
         }
     }, 25)
+}
+
+//Resetting game functions
+
+function updateScore() {
+    pWins.innerHTML = 
+    `
+    <p class="human-wins">${player.wins}</p>
+    `
+    cWins.innerHTML = 
+    `
+    <p class="human-wins">${computer.wins}</p>
+    `
+}
+
+function clearGame() {
+    game.innerHTML = ``
+    selection.innerHTML = ``
+    winnerText.innerHTML = ``
 }

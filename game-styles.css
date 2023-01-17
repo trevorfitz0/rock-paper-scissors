@@ -95,9 +95,8 @@ img:active {
 }
 
 #buttons {
-    margin-top: 65vh;
     height: 4vh;
-    width: auto;
+    width: 100%;
     background-color: antiquewhite;
     font-size: 3vh;
     display: flex;
@@ -108,3 +107,41 @@ img:active {
     background-color: rgb(96, 94, 92);
     transform: scale(1.02);
 }
+
+.home-button {
+    margin-top: 15vh;
+}
+
+.reset-button {
+    margin-top: 65vh;
+}
+
+.instruction-button {
+    margin-top: 45vh;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .modal-popup {
+    background-color: #201f24;
+    color: bisque;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+  }
+  
+  .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
