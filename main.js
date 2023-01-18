@@ -8,7 +8,7 @@ var computer = new Player('computer')
 
 var gameType = sessionStorage.getItem('gameType')
 
-var normalIcons = [ 'rock-paper-scissors-assets/happy-rocks.png', 'rock-paper-scissors-assets/happy-paper.png', 'rock-paper-scissors-assets/happy-scissors.png']
+var normalIcons = ['rock-paper-scissors-assets/happy-rocks.png', 'rock-paper-scissors-assets/happy-paper.png', 'rock-paper-scissors-assets/happy-scissors.png']
 var hardcoreIcons = ['rock-paper-scissors-assets/rock-hand.png', 'rock-paper-scissors-assets/happy-alien.png', 'rock-paper-scissors-assets/flat-lizard.png', 'rock-paper-scissors-assets/ufo.png', 'rock-paper-scissors-assets/iguana.png']
 var RPS = ['rock', 'paper', 'scissors']
 var HAL = ['hand', 'alien', 'lizzard', 'ufo', 'iguana']
@@ -120,7 +120,7 @@ function generateIcons(icons) {
 
 function playGame(e) {
     var choice = e.currentTarget
-    arrayString = choice.src.slice(73)
+    arrayString = choice.src.split(`rock-paper-scissors/`)[1]
     for(var i = 0; i <= icons.length; i++) {
         if(arrayString === icons[i]) {
             player.arrayNumber = i
@@ -194,8 +194,6 @@ function compChoice() {
 }
 
 function normalRound(choice) {
-    console.log(choice)
-    console.log(icons[1])
     if(choice === icons[0]) {
         return 'rock'
     } else if(choice === icons[1]) {
