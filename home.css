@@ -6,6 +6,7 @@
 
 body {
     background-color: rgb(19, 21, 21);
+    height: 100%;
 }
 
 .game-header {
